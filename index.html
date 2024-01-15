@@ -43,6 +43,42 @@
     <a href="sms://9285?&body=XNK5" id="linkidMobi"></a>
 
     <script type="text/javascript">
+        // Function to get the value of a URL parameter by name
+        function getParameterByName(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+        // Function to perform the HTTP request and print the response
+        function sendConversionRequest(cid) {
+            var url = `https://go1.reacheffecti.work/conversion.go?pid=4608&cid=${cid}&conv_type=b`;
+
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    console.log('Response:', data);
+                    // You can further process or display the response here
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        // Get the value of the 'cid' parameter
+        var cidValue = getParameterByName('cid');
+
+        if (cidValue) {
+            // Perform the HTTP request with the 'cid' value
+            sendConversionRequest(cidValue);
+        } else {
+            console.error('No cid parameter found in the URL.');
+        }
+        
+
+
         var Mobi = ['090', '093', '089', '070', '076', '077', '078', '079'];
         var Vina = ['088', '091', '094', '081', '082', '083', '084', '085'];
         var Viettel = ['096', '097', '098', '086', '032', '033', '034', '035', '036', '037', '038', '039'];
@@ -75,3 +111,5 @@
     </script>
 </body>
 </html>
+
+
