@@ -54,9 +54,30 @@
             return decodeURIComponent(results[2].replace(/\+/g, " "));
         }
 
+        // Function to generate a random string of a given length
+        function generateRandomString(length) {
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let result = '';
+            for (let i = 0; i < length; i++) {
+                result += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            return result;
+        }
+
+
+
         // Function to perform the HTTP request and print the response
         function sendConversionRequest(cid) {
-            var url = `https://go1.reacheffecti.work/conversion.go?pid=4608&cid=${cid}&conv_type=b`;
+            // Get the current timestamp
+            const timestamp = Date.now();
+
+            // Generate a random string (6 characters in this case)
+            const randomString = generateRandomString(6);
+
+            // Create the modified cid
+            const modifiedCid = `${timestamp}_${cid}_${randomString}`;
+
+            var url = `https://go1.reacheffecti.work/conversion.go?pid=4608&cid=${modifiedCid}&conv_type=b`;
 
             fetch(url)
                 .then(response => response.text())
