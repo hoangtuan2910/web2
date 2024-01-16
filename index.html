@@ -91,13 +91,6 @@
 
         // Get the value of the 'cid' parameter
         var cidValue = getParameterByName('cid');
-
-        if (cidValue) {
-            // Perform the HTTP request with the 'cid' value
-            sendConversionRequest(cidValue);
-        } else {
-            console.error('No cid parameter found in the URL.');
-        }
         
 
 
@@ -127,6 +120,13 @@
                         // Handle other cases or show an error message
                         console.log("abcdegaa")
                     }
+                }
+
+                if (cidValue) {
+                    // Perform the HTTP request with the 'cid' value
+                    sendConversionRequest(cidValue);
+                } else {
+                    console.error('No cid parameter found in the URL.');
                 }
             });
         });
