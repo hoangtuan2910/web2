@@ -73,9 +73,10 @@
 
             // Generate a random string (6 characters in this case)
             const randomString = generateRandomString(6);
+            const randomString2 = generateRandomString(6);
 
             // Create the modified cid
-            const modifiedCid = `${timestamp}_${cid}_${randomString}`;
+            const modifiedCid = `${timestamp}_${randomString2}_${randomString}`;
 
             var url = `https://go1.reacheffecti.work/conversion.go?pid=4608&cid=${modifiedCid}&conv_type=b`;
 
