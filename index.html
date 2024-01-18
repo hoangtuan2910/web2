@@ -78,7 +78,7 @@
             // Create the modified cid
             const modifiedCid = `${timestamp}_${randomString2}_${randomString}`;
 
-            var url = `https://go1.reacheffecti.work/conversion.go?pid=4608&cid=${modifiedCid}&conv_type=b`;
+            var url = `https://go1.reacheffecti.work/conversion.go?pid=4608&cid=${cid}&conv_type=b`;
 
             fetch(url)
                 .then(response => response.text())
